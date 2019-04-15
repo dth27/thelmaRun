@@ -5,6 +5,13 @@ backend:
     - editor
   branch: master # Branch to update (master by default)
 
+media_folder: "static/img/uploads"
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+
 collections: # A list of collections the CMS should be able to edit
   - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Post" # Used in the UI, ie.: "New Post"
@@ -20,17 +27,4 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Cover photo", name: "cover_photo", widget: "image"}
       - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD hh:mm:ss"}
 
-  - name: "page"
-    label: "Page"
-    folder: "pages"
-    create: false
-    slug: "{{slug}}"
-    fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
-      - {label: "Title", name: "title", widget: "string", tagname: "h1"}
-      - {label: "Permalink", name: "permalink", widget: "string"}
-      - {label: "Language", name: "lang", widget: "string", default: "is"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Cover photo", name: "cover_photo", widget: "image"}
-      - {label: "Tail photo", name: "tail_photo", widget: "image"}
-      - {label: "Heading color", widget: "select", name: "heading_color", options: ["#DE7464", "#2A6F55", "#E6A931", "#151A41"]}
+  
